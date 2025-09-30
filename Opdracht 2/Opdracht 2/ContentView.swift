@@ -10,14 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Tab("departure", systemImage: "airplane.departure") {
+            Tab("Departure", systemImage: "airplane.departure") {
+                DepartureView()
+            }
+            Tab("Info", systemImage: "info.bubble.fill") {
                 HomeView()
             }
-            Tab("home", systemImage: "House") {
-                HomeView()
-            }
-            Tab("arrival", systemImage: "airplane.arrival") {
-                HomeView()
+            Tab("Arrival", systemImage: "airplane.arrival") {
+                DepartureView()
             }
         }
     }

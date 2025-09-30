@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
-var name : String = "Wout"
 struct HomeView: View {
     var body: some View {
-        Text("Hello, \(name)!")
+        ScrollView {
+            Text("Barcelona").foregroundStyle(.tint)
+        }
     }
 }
 
