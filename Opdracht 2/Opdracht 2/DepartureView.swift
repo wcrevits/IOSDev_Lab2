@@ -7,40 +7,22 @@
 
 import SwiftUI
 
-struct InfoDepartureView {
-    let shortDepAirport : String
-    let longDepAriport : String
-    let depTime : String
-    let shortArrAirport : String
-    let longArrAirport : String
-    let arrTime : String
-    let flightNumber : String
-    let gateNumber : String
-    let seatNumber : String
-    let passengerName : String
-    let className : String
-    let flightDate : String
-}
-
-let informationDepartureView = InfoDepartureView (
-    shortDepAirport: "BRU", longDepAriport: "Brussels", depTime: "8:15", shortArrAirport: "BCN", longArrAirport: "Barcelona", arrTime: "11:15", flightNumber: "SN23A", gateNumber: "B23", seatNumber: "27A", passengerName: "Wout Crevits", className: "Business", flightDate: "27/08/2024"
-)
-
 struct DepartureView: View {
+    let information : FlightInfo
     var body: some View {
         HStack {
             VStack {
-                Text (informationDepartureView.shortDepAirport)
-                Text (informationDepartureView.longDepAriport)
-                Text (informationDepartureView.depTime)
+                Text (information.shortDepAirport)
+                Text (information.longDepAriport)
+                Text (information.depTime)
             }
             VStack {
                 Image(systemName: "airplane")
             }
             VStack {
-                Text (informationDepartureView.shortArrAirport)
-                Text (informationDepartureView.longArrAirport)
-                Text (informationDepartureView.arrTime)
+                Text (information.shortArrAirport)
+                Text (information.longArrAirport)
+                Text (information.arrTime)
             }
         }.padding()
         Grid {
@@ -50,26 +32,22 @@ struct DepartureView: View {
                 Text ("seat")
             }
             GridRow {
-                Text (informationDepartureView.flightNumber)
-                Text (informationDepartureView.gateNumber)
-                Text (informationDepartureView.seatNumber)
+                Text (information.flightNumber)
+                Text (information.gateNumber)
+                Text (information.seatNumber)
             }
         }.padding().background(.tint)
         HStack {
             VStack {
                 Text("Passenger")
-                Text(informationDepartureView.passengerName)
+                Text(information.passengerName)
                 Text("Class")
-                Text(informationDepartureView.className)
+                Text(information.className)
                 Text("Flight date")
-                Text(informationDepartureView.flightDate)
+                Text(information.flightDate)
             }
             
             Image(systemName: "person.crop.artframe")
         }
     }
-}
-
-#Preview {
-    DepartureView()
 }
