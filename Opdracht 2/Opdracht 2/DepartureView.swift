@@ -30,13 +30,18 @@ struct DepartureView: View {
                 Text ("flight")
                 Text ("gate")
                 Text ("seat")
-            }
+            }.padding(.top, 15)
+            Divider()
             GridRow {
                 Text (information.flightNumber)
                 Text (information.gateNumber)
                 Text (information.seatNumber)
-            }
-        }.padding().background(.tint)
+            }.fontWeight(.bold).padding(.bottom, 15)
+        }.background(.tint)
+            .cornerRadius(12)
+            .foregroundColor(.white)
+            .listRowSpacing(2)
+            .padding()
         HStack {
             VStack {
                 Text("Passenger")
@@ -47,7 +52,8 @@ struct DepartureView: View {
                 Text(information.flightDate)
             }
             
-            Image(systemName: "person.crop.artframe")
+            Image(systemName: "person.crop.artframe").font(.system(size: 200)).foregroundColor(.gray)
+                
         }
     }
 }

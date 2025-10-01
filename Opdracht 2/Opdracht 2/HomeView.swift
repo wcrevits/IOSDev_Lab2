@@ -19,10 +19,11 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         ScrollView {
-            Image("Barcelona")
+            
             VStack {
-                Text(informationHomeView.title).foregroundStyle(.tint)
-                Text(informationHomeView.infoText)
+                Image("Barcelona").resizable().aspectRatio(contentMode: .fill)
+                Text(informationHomeView.title).foregroundStyle(.tint).font(Font.title).fontWeight(.bold)
+                Text(informationHomeView.infoText).padding()
             }
             
         }
