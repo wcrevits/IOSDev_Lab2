@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-enum FlightClass {
-    case economy, economyPlus, bussiness
-}
-
-struct Info {
+struct InfoDepartureView {
     let shortDepAirport : String
     let longDepAriport : String
     let depTime : String
@@ -22,89 +18,54 @@ struct Info {
     let gateNumber : String
     let seatNumber : String
     let passengerName : String
-    let className : FlightClass
+    let className : String
     let flightDate : String
 }
 
-let information = Info (
-    shortDepAirport: "BRU", longDepAriport: "Brussels", depTime: "8:15", shortArrAirport: "BCN", longArrAirport: "Barcelona", arrTime: "11:15", flightNumber: "SN23A", gateNumber: "B23", seatNumber: "27A", passengerName: "Dir Hostens", className: FlightClass.bussiness, flightDate: "27/08/2024"
+let informationDepartureView = InfoDepartureView (
+    shortDepAirport: "BRU", longDepAriport: "Brussels", depTime: "8:15", shortArrAirport: "BCN", longArrAirport: "Barcelona", arrTime: "11:15", flightNumber: "SN23A", gateNumber: "B23", seatNumber: "27A", passengerName: "Wout Crevits", className: "Business", flightDate: "27/08/2024"
 )
 
 struct DepartureView: View {
     var body: some View {
+        HStack {
+            VStack {
+                Text (informationDepartureView.shortDepAirport)
+                Text (informationDepartureView.longDepAriport)
+                Text (informationDepartureView.depTime)
+            }
+            VStack {
+                Image(systemName: "airplane")
+            }
+            VStack {
+                Text (informationDepartureView.shortArrAirport)
+                Text (informationDepartureView.longArrAirport)
+                Text (informationDepartureView.arrTime)
+            }
+        }.padding()
         Grid {
             GridRow {
-                Grid {
-                    GridRow {
-                        Text (information.shortDepAirport)
-                    }
-                    GridRow {
-                        Text (information.longDepAriport)
-                    }
-                    GridRow {
-                        Text (information.depTime)
-                    }
-                }
-                Grid {
-                    GridRow {
-                        Text (" ")
-                    }
-                    GridRow {
-                        Image(systemName: "airplane")
-                    }
-                    GridRow {
-                        Text (" ")
-                    }
-                }
-                Grid {
-                    GridRow {
-                        Text (information.shortArrAirport)
-                    }
-                    GridRow {
-                        Text (information.longArrAirport)
-                    }
-                    GridRow {
-                        Text (information.arrTime)
-                    }
-                }
+                Text ("flight")
+                Text ("gate")
+                Text ("seat")
             }
-            .padding()
             GridRow {
-                Grid {
-                    GridRow {
-                        Text ("Text")
-                    }
-                    GridRow {
-                        Text ("Text")
-                    }
-                }
-                Grid {
-                    GridRow {
-                        Text ("Text")
-                    }
-                    GridRow {
-                        Text ("Text")
-                    }
-                }
-                Grid {
-                    GridRow {
-                        Text ("Text")
-                    }
-                    GridRow {
-                        Text ("Text")
-                    }
-                }
+                Text (informationDepartureView.flightNumber)
+                Text (informationDepartureView.gateNumber)
+                Text (informationDepartureView.seatNumber)
             }
-            .padding()
-            GridRow {
-                Grid {
-                    Text ("Text")
-                }
-                Grid {
-                    
-                    Image(systemName: "person.crop.artframe")
-                }
+        }.padding().background(.tint)
+        HStack {
+            VStack {
+                Text("Passenger")
+                Text(informationDepartureView.passengerName)
+                Text("Class")
+                Text(informationDepartureView.className)
+                Text("Flight date")
+                Text(informationDepartureView.flightDate)
             }
+            
+            Image(systemName: "person.crop.artframe")
         }
     }
 }
