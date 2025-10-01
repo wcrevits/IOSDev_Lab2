@@ -12,17 +12,21 @@ struct DepartureView: View {
     var body: some View {
         HStack {
             VStack {
-                Text (information.shortDepAirport)
-                Text (information.longDepAriport)
-                Text (information.depTime)
+                Text (information.shortDepAirport).foregroundStyle(.tint)
+                    .font(.largeTitle).fontWeight(.semibold)
+                Text (information.longDepAriport).foregroundStyle(.gray)
+                    .font(.title)
+                Text (information.depTime).font(.system(size:20))
             }
             VStack {
-                Image(systemName: "airplane")
+                Image(systemName: "airplane").foregroundStyle(.gray).font(.system(size:50))
             }
             VStack {
-                Text (information.shortArrAirport)
-                Text (information.longArrAirport)
-                Text (information.arrTime)
+                Text (information.shortArrAirport).foregroundStyle(.tint)
+                    .font(.largeTitle).fontWeight(.semibold)
+                Text (information.longArrAirport).foregroundStyle(.gray)
+                    .font(.title)
+                Text (information.arrTime).font(.system(size:20))
             }
         }.padding()
         Grid {
@@ -30,13 +34,13 @@ struct DepartureView: View {
                 Text ("flight")
                 Text ("gate")
                 Text ("seat")
-            }.padding(.top, 15)
+            }.padding(.top, 20)
             Divider()
             GridRow {
                 Text (information.flightNumber)
                 Text (information.gateNumber)
                 Text (information.seatNumber)
-            }.fontWeight(.bold).padding(.bottom, 15)
+            }.fontWeight(.bold).padding(.bottom, 20)
         }.background(.tint)
             .cornerRadius(12)
             .foregroundColor(.white)
@@ -44,16 +48,15 @@ struct DepartureView: View {
             .padding()
         HStack {
             VStack {
-                Text("Passenger")
-                Text(information.passengerName)
-                Text("Class")
-                Text(information.className)
-                Text("Flight date")
-                Text(information.flightDate)
+                Text("Passenger").foregroundStyle(.gray)
+                Text(information.passengerName).padding(.bottom, 20)
+                Text("Class").foregroundStyle(.gray)
+                Text(information.className).padding(.bottom, 20)
+                Text("Flight date").foregroundStyle(.gray)
+                Text(information.flightDate).padding(.bottom, 20)
             }
             
             Image(systemName: "person.crop.artframe").font(.system(size: 200)).foregroundColor(.gray)
-                
         }
     }
 }
